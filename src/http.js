@@ -4,7 +4,7 @@ const { conj } = require('./utils');
 const { stringify: stringifyQs } = require('query-string');
 
 
-function request(opts, def, http = axios) {
+function request(opts = {}, def, http = axios) {
   return http(configure(opts, def))
     .then(parseResponse, throwResponse);
 }
@@ -28,7 +28,7 @@ function configure(opts, def) {
 
 
 function parseResponse(resp) {
-  return new SeedAuthResult(resp.data);
+  return new SeedAuthResult(resp);
 }
 
 
@@ -47,8 +47,12 @@ class SeedAuthResponseError extends Error {
 
 
 class SeedAuthResult {
-  constructor(data) {
-    this.data = data;
+  constructor(response) {
+    this.response = response;
+  }
+
+  get data() {
+    return this.response.data;
   }
 }
 
