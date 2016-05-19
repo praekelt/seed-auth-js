@@ -26,6 +26,6 @@ rules:
   brace-style: 0
   quotes: 0
   arrow-body-style: 0
-  indent: [2, 2]
-  max-len: [code, 80]
+  indent: 0
+  max-len: [2, code: 80]
   object-property-newline: error
