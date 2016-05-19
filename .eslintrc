@@ -23,9 +23,7 @@ rules:
     - 2
     - never
   import/no-unresolved: 0
-  no-param-reassign:
-    - 2
-    - props: false
+  no-param-reassign: 0
   no-else-return: 0
   no-shadow: 0
   no-use-before-define: 0
@@ -33,3 +31,4 @@ rules:
   object-curly-spacing: 0
   brace-style: 0
   quotes: 0
+  arrow-body-style: 0

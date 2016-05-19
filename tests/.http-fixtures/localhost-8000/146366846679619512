@@ -1,0 +1,13 @@
+GET /organizations/
+accept: application/json, text/plain, */*
+authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
+
+HTTP/1.0 200 OK
+date: Thu, 19 May 2016 14:34:26 GMT
+server: WSGIServer/0.1 Python/2.7.10
+vary: Accept, Cookie
+x-frame-options: SAMEORIGIN
+content-type: application/json
+allow: GET, POST, HEAD, OPTIONS
+
+[]
