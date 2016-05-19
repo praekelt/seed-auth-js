@@ -2,9 +2,10 @@
   "name": "seed-auth",
   "version": "0.0.0",
   "description": "js client for seed-auth-api",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint 'src/**/*.js' 'tests/**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/praekelt/seed-auth-js/issues"
   },
-  "homepage": "https://github.com/praekelt/seed-auth-js#readme"
+  "homepage": "https://github.com/praekelt/seed-auth-js#readme",
+  "devDependencies": {
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb": "^8.0.0",
+    "eslint-plugin-import": "^1.6.1",
+    "eslint-plugin-jsx-a11y": "^1.0.4",
+    "eslint-plugin-react": "^5.0.1"
+  }
 }
