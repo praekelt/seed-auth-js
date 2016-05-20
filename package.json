@@ -1,0 +1,36 @@
+{
+  "name": "seed-auth",
+  "version": "0.0.0",
+  "description": "js client for seed-auth-api",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec -r 'tests/setup.js' 'tests/**/*.test.js'",
+    "lint": "eslint 'src/**/*.js' 'tests/**/*.js'",
+    "ci": "npm run lint && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/praekelt/seed-auth-js.git"
+  },
+  "author": "Praekelt Foundation",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/praekelt/seed-auth-js/issues"
+  },
+  "homepage": "https://github.com/praekelt/seed-auth-js#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^2.9.0",
+    "eslint-config-airbnb": "^8.0.0",
+    "eslint-plugin-import": "^1.6.1",
+    "eslint-plugin-jsx-a11y": "^1.0.4",
+    "eslint-plugin-react": "^5.0.1",
+    "mocha": "^2.4.5",
+    "replay": "^2.0.6"
+  },
+  "dependencies": {
+    "axios": "^0.11.1",
+    "lodash": "^4.12.0",
+    "query-string": "^4.1.0"
+  }
+}
