@@ -13,17 +13,11 @@ function request(opts = {}, def, http = axios) {
 function configure(opts, def) {
   opts = conj(conf, opts);
 
-  def = conj(def, {
-    headers: {},
-    paramsSerializer: stringifyQs
-  });
-
-  def = conj(def, {
+  return conj(def, {
     url: opts.prefix + def.url,
+    paramsSerializer: stringifyQs,
     headers: conj(def.headers, {Authorization: `Token ${opts.token}`})
   });
-
-  return def;
 }
 
 
