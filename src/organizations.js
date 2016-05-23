@@ -14,7 +14,14 @@ const getAll = opts => request(opts, {
 });
 
 
+const get = (id, opts) => request(opts, {
+  method: 'GET',
+  url: `/organizations/${id}`
+});
+
+
 module.exports = {
   create,
-  getAll
+  getAll,
+  get
 };
