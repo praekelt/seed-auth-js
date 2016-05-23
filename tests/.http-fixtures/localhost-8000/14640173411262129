@@ -5,12 +5,12 @@ content-type: application/json;charset=utf-8
 body: {\"name\":\"Nights Watch\"}
 
 HTTP/1.0 201 Created
-date: Mon, 23 May 2016 11:03:08 GMT
+date: Mon, 23 May 2016 15:29:01 GMT
 server: WSGIServer/0.1 Python/2.7.10
 vary: Accept, Cookie
 x-frame-options: SAMEORIGIN
 content-type: application/json
-location: http://localhost:8000/organizations/1/
+location: http://localhost:8000/organizations/10/
 allow: GET, POST, HEAD, OPTIONS
 
 {"name":"Nights Watch","id":1,"url":"http://localhost:8000/organizations/1/","teams":[],"users":[],"archived":false}

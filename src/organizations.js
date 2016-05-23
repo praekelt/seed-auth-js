@@ -16,20 +16,20 @@ const getAll = opts => request(opts, {
 
 const get = (id, opts) => request(opts, {
   method: 'GET',
-  url: `/organizations/${id}`
+  url: `/organizations/${id}/`
 });
 
 
 const update = (id, data, opts) => request(opts, {
   method: 'PUT',
-  url: `/organizations/${id}`,
+  url: `/organizations/${id}/`,
   data
 });
 
 
 const archive = (id, opts) => request(opts, {
   method: 'DELETE',
-  url: `/organizations/${id}`
+  url: `/organizations/${id}/`
 });
 
 

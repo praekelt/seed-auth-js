@@ -50,7 +50,7 @@ describe("auth.organizations", () => {
       return auth.organizations.update(1, {
           archived: false,
           id: 1,
-          name: 'Nights Watch',
+          name: 'Brotherhood Without Banners',
           teams: [],
           url: 'http://localhost:8000/organizations/1/',
           users: []
@@ -58,7 +58,7 @@ describe("auth.organizations", () => {
         .then(res => expect(res.data).deep.equal({
           archived: false,
           id: 1,
-          name: 'Nights Watch',
+          name: 'Brotherhood Without Banners',
           teams: [],
           url: 'http://localhost:8000/organizations/1/',
           users: []
@@ -69,14 +69,7 @@ describe("auth.organizations", () => {
   describe(".archive", () => {
     it("should archive an organization", () => {
       return auth.organizations.archive(1)
-        .then(res => expect(res.data).to.deep.equal({
-          archived: false,
-          name: 'Nights Watch',
-          id: 1,
-          teams: [],
-          url: 'http://localhost:8000/organizations/1/',
-          users: []
-        }));
+        .then(res => expect(res.data).to.be.empty);
     });
   });
 });
