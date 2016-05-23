@@ -27,9 +27,16 @@ const update = (id, data, opts) => request(opts, {
 });
 
 
+const archive = (id, opts) => request(opts, {
+  method: 'DELETE',
+  url: `/organizations/${id}`
+});
+
+
 module.exports = {
   create,
   getAll,
   get,
-  update
+  update,
+  archive
 };

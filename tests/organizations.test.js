@@ -65,4 +65,18 @@ describe("auth.organizations", () => {
         }));
     });
   });
+
+  describe(".archive", () => {
+    it("should archive an organization", () => {
+      return auth.organizations.archive(1)
+        .then(res => expect(res.data).to.deep.equal({
+          archived: false,
+          name: 'Nights Watch',
+          id: 1,
+          teams: [],
+          url: 'http://localhost:8000/organizations/1/',
+          users: []
+        }));
+    });
+  });
 });
