@@ -1,0 +1,13 @@
+PUT /organizations/1
+accept: application/json, text/plain, */*
+authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
+content-type: application/json;charset=utf-8
+body: {\"archived\":false,\"id\":1,\"name\":\"Nights Watch\",\"teams\":[],\"url\":\"http://localhost:8000/organizations/1/\",\"users\":[]}
+
+HTTP/1.0 301 Moved Permanently
+date: Mon, 23 May 2016 15:16:06 GMT
+server: WSGIServer/0.1 Python/2.7.10
+x-frame-options: SAMEORIGIN
+content-type: text/html; charset=utf-8
+location: /organizations/1/
+

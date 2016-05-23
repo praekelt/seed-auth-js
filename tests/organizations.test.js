@@ -32,8 +32,29 @@ describe("auth.organizations", () => {
   });
 
   describe(".get", () => {
-    it("should get organizations", () => {
+    it("should get an organization", () => {
       return auth.organizations.get(1)
+        .then(res => expect(res.data).deep.equal({
+          archived: false,
+          id: 1,
+          name: 'Nights Watch',
+          teams: [],
+          url: 'http://localhost:8000/organizations/1/',
+          users: []
+        }));
+    });
+  });
+
+  describe(".update", () => {
+    it("should update an organization", () => {
+      return auth.organizations.update(1, {
+          archived: false,
+          id: 1,
+          name: 'Nights Watch',
+          teams: [],
+          url: 'http://localhost:8000/organizations/1/',
+          users: []
+        })
         .then(res => expect(res.data).deep.equal({
           archived: false,
           id: 1,

@@ -1,10 +1,10 @@
 const { request } = require('./http');
 
 
-const create = (d, opts) => request(opts, {
+const create = (data, opts) => request(opts, {
   method: 'POST',
   url: '/organizations/',
-  data: d
+  data
 });
 
 
@@ -20,8 +20,16 @@ const get = (id, opts) => request(opts, {
 });
 
 
+const update = (id, data, opts) => request(opts, {
+  method: 'PUT',
+  url: `/organizations/${id}`,
+  data
+});
+
+
 module.exports = {
   create,
   getAll,
-  get
+  get,
+  update
 };
