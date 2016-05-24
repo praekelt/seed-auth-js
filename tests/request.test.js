@@ -6,15 +6,16 @@ const { fail } = expect;
 
 describe("auth.request", () => {
   it("should prepend the prefix to requests", () => {
-    return auth.request({conf: {prefix: 'http://localhost:8001'}}, {
+    return auth.request({
         method: 'GET',
-        url: '/organizations/'
+        url: '/organizations/',
+        options: {conf: {prefix: 'http://localhost:8001'}}
       })
       .then(res => expect(res.data).to.be.empty);
   });
 
   it("should throw error responses", () => {
-    return auth.request(null, {
+    return auth.request({
         method: 'GET',
         url: '/i-do-not-exist'
       })
@@ -25,9 +26,10 @@ describe("auth.request", () => {
   });
 
   it("should support token auth", () => {
-    return auth.request({conf: {token: '1234'}}, {
+    return auth.request({
         method: 'GET',
-        url: '/'
+        url: '/',
+        options: {conf: {token: '1234'}}
       })
       .then(res => expect(res.response.config.headers.Authorization)
         .to.equal('Token 1234'));
@@ -35,12 +37,13 @@ describe("auth.request", () => {
 
   it("should support passing of query params", () => {
     return auth.request({
-        foo: 23,
-        bar: false,
-        conf: {baz: 'quux'}
-      }, {
         method: 'GET',
-        url: '/'
+        url: '/',
+        options: {
+          foo: 23,
+          bar: false,
+          conf: {baz: 'quux'}
+        }
       })
       .then(res => expect(res.response.config.params).to.deep.equal({
         foo: 23,
