@@ -2,61 +2,70 @@ const { method } = require('./http');
 const mapValues = require('lodash/mapValues');
 
 
-const create = (data, opts) => ({
+const create = (data, options = {}) => ({
   method: 'POST',
   url: '/teams/',
-  data
+  data,
+  options
 });
 
 
-const getAll = opts => ({
+const getAll = (options = {}) => ({
   method: 'GET',
-  url: '/teams/'
+  url: '/teams/',
+  options
 });
 
 
-const get = (id, opts) => ({
+const get = (id, options = {}) => ({
   method: 'GET',
-  url: `/teams/${id}`
+  url: `/teams/${id}`,
+  options
 });
 
 
-const update = (id, data, opts) => ({
+const update = (id, data, options = {}) => ({
   method: 'PUT',
   url: `/teams/${id}`,
-  data
+  data,
+  options
 });
 
 
-const archive = (id, opts) => ({
+const archive = (id, options = {}) => ({
   method: 'DELETE',
-  url: `/teams/${id}`
+  url: `/teams/${id}`,
+  options
 });
 
 
-const addUser = (id, userId, opts) => ({
+const addUser = (id, userId, options = {}) => ({
   method: 'POST',
   url: `/teams/${id}/users/`,
-  data: {user_id: userId}
+  data: {user_id: userId},
+  options
 });
 
 
-const removeUser = (id, userId, opts) => ({
+const removeUser = (id, userId, options = {}) => ({
   method: 'DELETE',
-  url: `/teams/${id}/users/${userId}`
+  url: `/teams/${id}/users/${userId}`,
+  options
 });
 
 
-const addPermission = (id, data, opts) => ({
+const addPermission = (id, data, options = {}) => ({
   method: 'POST',
   url: `/teams/${id}/permissions/`,
-  data
+  data,
+  options
 });
 
 
-const removePermission = (id, permissionId, opts) => ({
+const removePermission = (id, permissionId, options = {}) => ({
   method: 'DELETE',
-  url: `/teams/${id}/permissions/${permissionId}`
+  url: `/teams/${id}/permissions/${permissionId}`,
+  options
 });
 
 
