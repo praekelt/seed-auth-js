@@ -12,17 +12,17 @@ function method(definition) {
 }
 
 
-function request(opts, def, http = axios) {
-  return http(configure(opts, def))
+function request(def, http = axios) {
+  return http(configure(def))
     .then(parseResponse, throwResponse);
 }
 
 
-function configure(opts, def) {
+function configure(def) {
   const conf = conj(
     globalConf,
-    get(opts, 'conf'),
-    {params: omit(opts, 'conf')});
+    get(def.options, 'conf'),
+    {params: omit(def.options, 'conf')});
 
   return conj(def, {
     url: conf.prefix + def.url,
