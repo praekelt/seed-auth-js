@@ -1,0 +1,11 @@
+GET /i-do-not-exist
+accept: application/json, text/plain, */*
+authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
+
+HTTP/1.0 404 Not Found
+date: Mon, 23 May 2016 15:29:01 GMT
+server: WSGIServer/0.1 Python/2.7.10
+x-frame-options: SAMEORIGIN
+content-type: text/html
+
+<h1>Not Found</h1><p>The requested URL /i-do-not-exist was not found on this server.</p>

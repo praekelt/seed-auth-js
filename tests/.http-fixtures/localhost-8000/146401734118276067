@@ -1,0 +1,13 @@
+GET /organizations/1/
+accept: application/json, text/plain, */*
+authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
+
+HTTP/1.0 200 OK
+date: Mon, 23 May 2016 15:29:01 GMT
+server: WSGIServer/0.1 Python/2.7.10
+vary: Accept, Cookie
+x-frame-options: SAMEORIGIN
+content-type: application/json
+allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+
+{"name":"Nights Watch","id":1,"url":"http://localhost:8000/organizations/1/","teams":[],"users":[],"archived":false}
