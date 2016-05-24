@@ -9,7 +9,8 @@ describe("auth.users", () => {
         .to.deep.equal({
           method: 'POST',
           url: '/users/',
-          data: {a: 23}
+          data: {a: 23},
+          options: {}
         });
     });
   });
@@ -19,7 +20,8 @@ describe("auth.users", () => {
       expect(auth.users.getAll.definition())
         .to.deep.equal({
           method: 'GET',
-          url: '/users/'
+          url: '/users/',
+          options: {}
         });
     });
   });
@@ -29,7 +31,8 @@ describe("auth.users", () => {
       expect(auth.users.get.definition(2))
         .to.deep.equal({
           method: 'GET',
-          url: '/users/2'
+          url: '/users/2',
+          options: {}
         });
     });
   });
@@ -40,7 +43,8 @@ describe("auth.users", () => {
         .to.deep.equal({
           method: 'PUT',
           url: '/users/2',
-          data: {a: 23}
+          data: {a: 23},
+          options: {}
         });
     });
   });
@@ -50,7 +54,8 @@ describe("auth.users", () => {
       expect(auth.users.deactivate.definition(2))
         .to.deep.equal({
           method: 'DELETE',
-          url: `/users/2`
+          url: `/users/2`,
+          options: {}
         });
     });
   });
