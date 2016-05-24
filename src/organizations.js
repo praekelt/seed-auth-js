@@ -33,10 +33,18 @@ const archive = (id, opts) => request(opts, {
 });
 
 
+const addUser = (id, userId, opts) => request(opts, {
+  method: 'POST',
+  url: `/organizations/${id}/users/`,
+  data: {user_id: userId}
+});
+
+
 module.exports = {
   create,
   getAll,
   get,
   update,
-  archive
+  archive,
+  addUser
 };

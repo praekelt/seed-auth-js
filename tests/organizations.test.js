@@ -72,4 +72,11 @@ describe("auth.organizations", () => {
         .then(res => expect(res.data).to.be.empty);
     });
   });
+
+  describe(".addUser", () => {
+    it("should add a user to the organization", () => {
+      return auth.organizations.addUser(1, 1)
+        .then(res => expect(res.data).to.be.empty);
+    });
+  });
 });
