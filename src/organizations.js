@@ -40,11 +40,18 @@ const addUser = (id, userId, opts) => request(opts, {
 });
 
 
+const removeUser = (id, userId, opts) => request(opts, {
+  method: 'DELETE',
+  url: `/organizations/${id}/users/${userId}/`
+});
+
+
 module.exports = {
   create,
   getAll,
   get,
   update,
   archive,
-  addUser
+  addUser,
+  removeUser
 };

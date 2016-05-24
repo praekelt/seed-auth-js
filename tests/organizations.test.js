@@ -79,4 +79,11 @@ describe("auth.organizations", () => {
         .then(res => expect(res.data).to.be.empty);
     });
   });
+
+  describe(".removeUser", () => {
+    it("should remove a user from the organization", () => {
+      return auth.organizations.removeUser(1, 1)
+        .then(res => expect(res.data).to.be.empty);
+    });
+  });
 });
