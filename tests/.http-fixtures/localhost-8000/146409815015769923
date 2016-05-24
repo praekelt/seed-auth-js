@@ -1,0 +1,13 @@
+GET /users/
+accept: application/json, text/plain, */*
+authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
+
+HTTP/1.0 200 OK
+date: Tue, 24 May 2016 13:55:50 GMT
+server: WSGIServer/0.1 Python/2.7.10
+vary: Accept, Cookie
+x-frame-options: SAMEORIGIN
+content-type: application/json
+allow: GET, POST, HEAD, OPTIONS
+
+[{"id":1,"url":"http://localhost:8000/users/1/","first_name":"","last_name":"","email":"","admin":true,"teams":[],"organizations":[],"active":true},{"id":2,"url":"http://localhost:8000/users/2/","first_name":"Jon","last_name":"Snow","email":"jonsnow@castleblack.net","admin":false,"teams":[],"organizations":[],"active":true}]
