@@ -5,102 +5,53 @@ const auth = require('..');
 describe("auth.users", () => {
   describe(".create", () => {
     it("should create a user", () => {
-      return auth.users.create({
-          first_name: 'Jon',
-          last_name: 'Snow',
-          email: 'jonsnow@castleblack.net',
-          password: 'gh0st',
-          admin: false
-        })
-        .then(res => expect(res.data).deep.equal({
-          id: 2,
-          url: 'http://localhost:8000/users/2/',
-          active: true,
-          first_name: 'Jon',
-          last_name: 'Snow',
-          email: 'jonsnow@castleblack.net',
-          organizations: [],
-          teams: [],
-          admin: false
-        }));
+      expect(auth.users.create.definition({a: 23}))
+        .to.deep.equal({
+          method: 'POST',
+          url: '/users/',
+          data: {a: 23}
+        });
     });
   });
 
   describe(".getAll", () => {
     it("should get all users", () => {
-      return auth.users.getAll()
-      .then(res => expect(res.data).deep.equal([{
-          id: 1,
-          url: 'http://localhost:8000/users/1/',
-          active: true,
-          admin: true,
-          email: '',
-          first_name: '',
-          last_name: '',
-          organizations: [],
-          teams: []
-      }, {
-          id: 2,
-          url: 'http://localhost:8000/users/2/',
-          active: true,
-          first_name: 'Jon',
-          last_name: 'Snow',
-          email: 'jonsnow@castleblack.net',
-          organizations: [],
-          teams: [],
-          admin: false
-        }]));
+      expect(auth.users.getAll.definition())
+        .to.deep.equal({
+          method: 'GET',
+          url: '/users/'
+        });
     });
   });
 
   describe(".get", () => {
     it("should get a user", () => {
-      return auth.users.get(2)
-        .then(res => expect(res.data).deep.equal({
-          id: 2,
-          url: 'http://localhost:8000/users/2/',
-          active: true,
-          first_name: 'Jon',
-          last_name: 'Snow',
-          email: 'jonsnow@castleblack.net',
-          organizations: [],
-          teams: [],
-          admin: false
-        }));
+      expect(auth.users.get.definition(2))
+        .to.deep.equal({
+          method: 'GET',
+          url: '/users/2'
+        });
     });
   });
 
   describe(".update", () => {
     it("should update a user", () => {
-      return auth.users.update(2, {
-          id: 2,
-          url: 'http://localhost:8000/users/2/',
-          active: true,
-          first_name: 'Jo',
-          last_name: 'Snow',
-          email: 'jonsnow@castleblack.net',
-          organizations: [],
-          teams: [],
-          admin: false
-        })
-        .then(res => expect(res.data).deep.equal({
-          id: 2,
-          url: 'http://localhost:8000/users/2/',
-          active: true,
-          first_name: 'Jo',
-          last_name: 'Snow',
-          email: 'jonsnow@castleblack.net',
-          organizations: [],
-          teams: [],
-          admin: false
-        }));
+      expect(auth.users.update.definition(2, {a: 23}))
+        .to.deep.equal({
+          method: 'PUT',
+          url: '/users/2',
+          data: {a: 23}
+        });
     });
   });
 
   describe(".deactivate", () => {
     it("should deactivate a user", () => {
-      return auth.users.deactivate(2)
-        .then(res => expect(res.data).to.be.empty);
+      expect(auth.users.deactivate.definition(2))
+        .to.deep.equal({
+          method: 'DELETE',
+          url: `/users/2`
+        });
     });
   });
 });

@@ -1,42 +1,43 @@
-const { request } = require('./http');
+const { method } = require('./http');
+const mapValues = require('lodash/mapValues');
 
 
-const create = (data, opts) => request(opts, {
+const create = (data, opts) => ({
   method: 'POST',
   url: '/users/',
   data
 });
 
 
-const getAll = opts => request(opts, {
+const getAll = opts => ({
   method: 'GET',
   url: '/users/'
 });
 
 
-const get = (id, opts) => request(opts, {
+const get = (id, opts) => ({
   method: 'GET',
-  url: `/users/${id}/`
+  url: `/users/${id}`
 });
 
 
-const update = (id, data, opts) => request(opts, {
+const update = (id, data, opts) => ({
   method: 'PUT',
-  url: `/users/${id}/`,
+  url: `/users/${id}`,
   data
 });
 
 
-const deactivate = (id, opts) => request(opts, {
+const deactivate = (id, opts) => ({
   method: 'DELETE',
-  url: `/users/${id}/`
+  url: `/users/${id}`
 });
 
 
-module.exports = {
+module.exports = mapValues({
   create,
   getAll,
   get,
   update,
   deactivate
-};
+}, method);
