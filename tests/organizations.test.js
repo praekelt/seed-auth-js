@@ -5,71 +5,53 @@ const auth = require('..');
 describe("auth.organizations", () => {
   describe(".create", () => {
     it("should create an organization", () => {
-      return auth.organizations.create({name: 'Nights Watch'})
-        .then(res => expect(res.data).deep.equal({
-          archived: false,
-          id: 1,
-          name: 'Nights Watch',
-          teams: [],
-          url: 'http://localhost:8000/organizations/1/',
-          users: []
-        }));
+      expect(auth.organizations.create.definition({a: 23}))
+        .to.deep.equal({
+          method: 'POST',
+          url: '/organizations/',
+          data: {a: 23}
+        });
     });
   });
 
   describe(".getAll", () => {
     it("should get all organizations", () => {
-      return auth.organizations.getAll()
-        .then(res => expect(res.data).deep.equal([{
-          archived: false,
-          id: 1,
-          name: 'Nights Watch',
-          teams: [],
-          url: 'http://localhost:8000/organizations/1/',
-          users: []
-        }]));
+      expect(auth.organizations.getAll.definition())
+        .to.deep.equal({
+          method: 'GET',
+          url: '/organizations/'
+        });
     });
   });
 
   describe(".get", () => {
     it("should get an organization", () => {
-      return auth.organizations.get(1)
-        .then(res => expect(res.data).deep.equal({
-          archived: false,
-          id: 1,
-          name: 'Nights Watch',
-          teams: [],
-          url: 'http://localhost:8000/organizations/1/',
-          users: []
-        }));
+      expect(auth.organizations.get.definition(1))
+        .to.deep.equal({
+          method: 'GET',
+          url: '/organizations/1'
+        });
     });
   });
 
   describe(".update", () => {
     it("should update an organization", () => {
-      return auth.organizations.update(1, {
-          archived: false,
-          id: 1,
-          name: 'Brotherhood Without Banners',
-          teams: [],
-          url: 'http://localhost:8000/organizations/1/',
-          users: []
-        })
-        .then(res => expect(res.data).deep.equal({
-          archived: false,
-          id: 1,
-          name: 'Brotherhood Without Banners',
-          teams: [],
-          url: 'http://localhost:8000/organizations/1/',
-          users: []
-        }));
+      expect(auth.organizations.update.definition(1, {a: 23}))
+        .to.deep.equal({
+          method: 'PUT',
+          url: '/organizations/1',
+          data: {a: 23}
+        });
     });
   });
 
   describe(".archive", () => {
     it("should archive an organization", () => {
-      return auth.organizations.archive(1)
-        .then(res => expect(res.data).to.be.empty);
+      expect(auth.organizations.archive.definition(1))
+        .to.deep.equal({
+          method: 'DELETE',
+          url: '/organizations/1'
+        });
     });
   });
 });

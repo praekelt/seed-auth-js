@@ -1,9 +1,15 @@
 const globalConf = require('./conf');
 const axios = require('axios');
 const { conj } = require('./utils');
+const extend = require('lodash/extend');
 const get = require('lodash/get');
 const omit = require('lodash/omit');
 const { stringify: stringifyQs } = require('query-string');
+
+
+function method(definition) {
+  return extend((...args) => request(definition(...args)), {definition});
+}
 
 
 function request(opts, def, http = axios) {
@@ -58,6 +64,7 @@ class SeedAuthResult {
 
 
 module.exports = {
+  method,
   request,
   SeedAuthResult,
   SeedAuthResponseError
