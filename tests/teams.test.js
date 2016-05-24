@@ -75,4 +75,25 @@ describe("auth.teams", () => {
         });
     });
   });
+
+  describe(".addPermission", () => {
+    it("should add a permission to the team", () => {
+      return expect(auth.teams.addPermission.definition(1, {a: 23}))
+        .to.deep.equal({
+          method: 'POST',
+          url: '/teams/1/permissions/',
+          data: {a: 23}
+        });
+    });
+  });
+
+  describe(".removePermission", () => {
+    it("should remove a permission from the team", () => {
+      return expect(auth.teams.removePermission.definition(1, 2))
+        .to.deep.equal({
+          method: 'DELETE',
+          url: '/teams/1/permissions/2'
+        });
+    });
+  });
 });
