@@ -4,7 +4,7 @@ const mapValues = require('lodash/mapValues');
 
 const create = (data, options = {}) => ({
   method: 'POST',
-  url: '/organizations/',
+  url: '/users/',
   data,
   options
 });
@@ -12,43 +12,30 @@ const create = (data, options = {}) => ({
 
 const getAll = (options = {}) => ({
   method: 'GET',
-  url: '/organizations/',
+  url: '/users/',
   options
 });
 
 
 const get = (id, options = {}) => ({
   method: 'GET',
-  url: `/organizations/${id}`,
+  url: `/users/${id}`,
   options
 });
 
 
 const update = (id, data, options = {}) => ({
   method: 'PUT',
-  url: `/organizations/${id}`,
+  url: `/users/${id}`,
   data,
   options
 });
 
 
-const archive = (id, options = {}) => ({
+const deactivate = (id, options = {}) => ({
   method: 'DELETE',
-  url: `/organizations/${id}`,
+  url: `/users/${id}`,
   options
-});
-
-
-const addUser = (id, userId, opts) => ({
-  method: 'POST',
-  url: `/organizations/${id}/users/`,
-  data: {user_id: userId}
-});
-
-
-const removeUser = (id, userId, opts) => ({
-  method: 'DELETE',
-  url: `/organizations/${id}/users/${userId}`
 });
 
 
@@ -57,7 +44,5 @@ module.exports = mapValues({
   getAll,
   get,
   update,
-  archive,
-  addUser,
-  removeUser
+  deactivate
 }, method);

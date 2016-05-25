@@ -1,5 +1,6 @@
 const conf = require('./conf');
 const teams = require('./teams');
+const users = require('./users');
 const utils = require('./utils');
 const organizations = require('./organizations');
 const {
@@ -16,6 +17,7 @@ module.exports = {
   method,
   request,
   teams,
+  users,
   organizations,
   SeedAuthResponseError,
   SeedAuthResult
