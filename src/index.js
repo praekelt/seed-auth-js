@@ -1,5 +1,6 @@
 const conf = require('./conf');
 const teams = require('./teams');
+const utils = require('./utils');
 const organizations = require('./organizations');
 const {
   method,
@@ -11,6 +12,7 @@ const {
 
 module.exports = {
   conf,
+  utils,
   method,
   request,
   teams,
