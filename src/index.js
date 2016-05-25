@@ -1,4 +1,5 @@
 const conf = require('./conf');
+const teams = require('./teams');
 const users = require('./users');
 const utils = require('./utils');
 const organizations = require('./organizations');
@@ -15,6 +16,7 @@ module.exports = {
   utils,
   method,
   request,
+  teams,
   users,
   organizations,
   SeedAuthResponseError,
