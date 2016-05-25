@@ -2,9 +2,11 @@ const globalConf = require('./conf');
 const axios = require('axios');
 const { conj } = require('./utils');
 const extend = require('lodash/extend');
+const has = require('lodash/has');
 const get = require('lodash/get');
 const omit = require('lodash/omit');
 const { stringify: stringifyQs } = require('query-string');
+const parseLinkHeader = require('parse-link-header');
 
 
 function method(definition) {
@@ -55,10 +57,19 @@ class SeedAuthResponseError extends Error {
 class SeedAuthResult {
   constructor(response) {
     this.response = response;
+    this.links = parseLinkHeader(response.headers.link);
   }
 
   get data() {
     return this.response.data;
+  }
+
+  hasPrev() {
+    return has(this.links, 'prev');
+  }
+
+  hasNext() {
+    return has(this.links, 'next');
   }
 }
 

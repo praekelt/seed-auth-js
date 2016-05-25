@@ -50,4 +50,54 @@ describe("auth.request", () => {
         bar: false
       }));
   });
+
+  describe("result", () => {
+    describe(".hasPrev()", () => {
+      it("should return whether a previous page exists", () => {
+        return Promise.resolve()
+          .then(() => auth.request({
+            method: 'GET',
+            url: '/organizations/',
+            options: {
+              page: 1,
+              page_size: 3
+            }
+          }))
+          .then(res => expect(res.hasPrev()).to.be.false)
+          .then(() => auth.request({
+            method: 'GET',
+            url: '/organizations/',
+            options: {
+              page: 2,
+              page_size: 3
+            }
+          }))
+          .then(res => expect(res.hasPrev()).to.be.true);
+      });
+    });
+
+    describe(".nextNext()", () => {
+      it("should return whether a next page exists", () => {
+        return Promise.resolve()
+          .then(() => auth.request({
+            method: 'GET',
+            url: '/organizations/',
+            options: {
+              page: 1,
+              page_size: 3
+            }
+          }))
+          .then(res => expect(res.hasNext()).to.be.true)
+          .then(() => auth.request({
+            method: 'GET',
+            url: '/organizations/',
+            options: {
+              page: 2,
+              page_size: 3
+            }
+          }))
+          .then(res => expect(res.hasNext()).to.be.false);
+      });
+    });
+  });
 });
