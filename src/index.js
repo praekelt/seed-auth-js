@@ -2,6 +2,7 @@ const conf = require('./conf');
 const teams = require('./teams');
 const permissions = require('./permissions');
 const users = require('./users');
+const user = require('./user');
 const utils = require('./utils');
 const organizations = require('./organizations');
 const {
@@ -18,6 +19,7 @@ module.exports = {
   method,
   request,
   teams,
+  user,
   users,
   permissions,
   organizations,
