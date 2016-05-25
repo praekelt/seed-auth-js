@@ -59,4 +59,25 @@ describe("auth.organizations", () => {
         });
     });
   });
+
+  describe(".addUser", () => {
+    it("should add a user to the organization", () => {
+      return expect(auth.organizations.addUser.definition(1, 2))
+        .to.deep.equal({
+          method: 'POST',
+          url: '/organizations/1/users/',
+          data: {user_id: 2}
+        });
+    });
+  });
+
+  describe(".removeUser", () => {
+    it("should remove a user from the organization", () => {
+      return expect(auth.organizations.removeUser.definition(1, 2))
+        .to.deep.equal({
+          method: 'DELETE',
+          url: '/organizations/1/users/2'
+        });
+    });
+  });
 });
