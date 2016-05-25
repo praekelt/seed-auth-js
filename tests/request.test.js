@@ -2,6 +2,7 @@ const { expect } = require('chai');
 const auth = require('..');
 const { SeedAuthResponseError } = auth;
 const { fail } = expect;
+const { conj } = auth.utils;
 
 
 describe("auth.request", () => {
@@ -97,6 +98,65 @@ describe("auth.request", () => {
             }
           }))
           .then(res => expect(res.hasNext()).to.be.false);
+      });
+    });
+
+    describe(".prev()", () => {
+      it("should return whether a previous page exists", () => {
+        const def = {
+          method: 'GET',
+          url: '/organizations/'
+        };
+
+        return Promise.resolve()
+          .then(() => auth.request(conj(def, {
+            options: {
+              page: 1,
+              page_size: 3
+            }
+          })))
+          .then(res => res.prev())
+          .then(res => expect(res).to.be.null)
+          .then(() => auth.request(conj(def, {
+            options: {
+              page: 2,
+              page_size: 3
+            }
+          })))
+          .then(res => res.prev())
+          .then(res => expect(res.response.config.params).to.deep.equal({
+            page_size: '3'
+          }));
+      });
+    });
+
+    describe(".next()", () => {
+      it("should return whether a next page exists", () => {
+        const def = {
+          method: 'GET',
+          url: '/organizations/'
+        };
+
+        return Promise.resolve()
+          .then(() => auth.request(conj(def, {
+            options: {
+              page: 1,
+              page_size: 3
+            }
+          })))
+          .then(res => res.next())
+          .then(res => expect(res.response.config.params).to.deep.equal({
+            page: '2',
+            page_size: '3'
+          }))
+          .then(() => auth.request(conj(def, {
+            options: {
+              page: 2,
+              page_size: 3
+            }
+          })))
+          .then(res => res.next())
+          .then(res => expect(res).to.be.null);
       });
     });
   });
