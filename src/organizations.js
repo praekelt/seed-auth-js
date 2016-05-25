@@ -1,42 +1,48 @@
-const { request } = require('./http');
+const { method } = require('./http');
+const mapValues = require('lodash/mapValues');
 
 
-const create = (data, opts) => request(opts, {
+const create = (data, options = {}) => ({
   method: 'POST',
   url: '/organizations/',
-  data
+  data,
+  options
 });
 
 
-const getAll = opts => request(opts, {
+const getAll = (options = {}) => ({
   method: 'GET',
-  url: '/organizations/'
+  url: '/organizations/',
+  options
 });
 
 
-const get = (id, opts) => request(opts, {
+const get = (id, options = {}) => ({
   method: 'GET',
-  url: `/organizations/${id}/`
+  url: `/organizations/${id}`,
+  options
 });
 
 
-const update = (id, data, opts) => request(opts, {
+const update = (id, data, options = {}) => ({
   method: 'PUT',
-  url: `/organizations/${id}/`,
-  data
+  url: `/organizations/${id}`,
+  data,
+  options
 });
 
 
-const archive = (id, opts) => request(opts, {
+const archive = (id, options = {}) => ({
   method: 'DELETE',
-  url: `/organizations/${id}/`
+  url: `/organizations/${id}`,
+  options
 });
 
 
-module.exports = {
+module.exports = mapValues({
   create,
   getAll,
   get,
   update,
   archive
-};
+}, method);

@@ -1,0 +1,14 @@
+GET /organizations/?page_size=3
+accept: application/json, text/plain, */*
+authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
+
+HTTP/1.0 200 OK
+date: Wed, 25 May 2016 09:45:51 GMT
+server: WSGIServer/0.1 Python/2.7.10
+link: <http://localhost:8000/organizations/?page=2&page_size=3>; rel="next"
+x-frame-options: SAMEORIGIN
+content-type: application/json
+allow: GET, POST, HEAD, OPTIONS
+vary: Accept, Cookie
+
+[{"title":"Brotherhood Without Banners","id":1,"url":"http://localhost:8000/organizations/1/","teams":[{"id":1,"url":"http://localhost:8000/teams/1/"},{"id":2,"url":"http://localhost:8000/teams/2/"}],"users":[],"archived":false},{"title":"Nights Watch","id":6,"url":"http://localhost:8000/organizations/6/","teams":[],"users":[],"archived":false},{"title":"Nights Watch","id":8,"url":"http://localhost:8000/organizations/8/","teams":[],"users":[],"archived":false}]

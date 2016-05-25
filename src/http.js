@@ -1,22 +1,32 @@
 const globalConf = require('./conf');
 const axios = require('axios');
 const { conj } = require('./utils');
+const extend = require('lodash/extend');
+const has = require('lodash/has');
 const get = require('lodash/get');
 const omit = require('lodash/omit');
+const omitBy = require('lodash/omitBy');
+const isUndefined = require('lodash/isUndefined');
 const { stringify: stringifyQs } = require('query-string');
+const parseLinkHeader = require('parse-link-header');
 
 
-function request(opts, def, http = axios) {
-  return http(configure(opts, def))
-    .then(parseResponse, throwResponse);
+function method(definition) {
+  return extend((...args) => request(definition(...args)), {definition});
 }
 
 
-function configure(opts, def) {
+function request(def, http = axios) {
+  return http(configure(def))
+    .then(resp => parseResponse(def, resp), throwResponse);
+}
+
+
+function configure(def) {
   const conf = conj(
     globalConf,
-    get(opts, 'conf'),
-    {params: omit(opts, 'conf')});
+    get(def.options, 'conf'),
+    {params: omit(def.options, 'conf')});
 
   return conj(def, {
     url: conf.prefix + def.url,
@@ -27,8 +37,8 @@ function configure(opts, def) {
 }
 
 
-function parseResponse(resp) {
-  return new SeedAuthResult(resp);
+function parseResponse(def, resp) {
+  return new SeedAuthResult(def, resp);
 }
 
 
@@ -47,17 +57,51 @@ class SeedAuthResponseError extends Error {
 
 
 class SeedAuthResult {
-  constructor(response) {
+  constructor(def, response) {
+    this.def = def;
     this.response = response;
+    this.links = parseLinkHeader(response.headers.link);
   }
 
   get data() {
     return this.response.data;
   }
+
+  hasPrev() {
+    return has(this.links, 'prev');
+  }
+
+  hasNext() {
+    return has(this.links, 'next');
+  }
+
+  prev() {
+    return this.hasPrev()
+      ? this._requestLink('prev')
+      : Promise.resolve(null);
+  }
+
+  next() {
+    return this.hasNext()
+      ? this._requestLink('next')
+      : Promise.resolve(null);
+  }
+
+  _requestLink(name) {
+    const {page, page_size} = this.links[name];
+
+    return request(conj(this.def, {
+      options: omitBy(conj(this.def.options, {
+        page,
+        page_size
+      }), isUndefined)
+    }));
+  }
 }
 
 
 module.exports = {
+  method,
   request,
   SeedAuthResult,
   SeedAuthResponseError
