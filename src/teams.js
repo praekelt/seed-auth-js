@@ -2,9 +2,9 @@ const { method } = require('./http');
 const mapValues = require('lodash/mapValues');
 
 
-const create = (data, options = {}) => ({
+const create = (orgId, data, options = {}) => ({
   method: 'POST',
-  url: '/teams/',
+  url: `/organizations/${orgId}/teams/`,
   data,
   options
 });
