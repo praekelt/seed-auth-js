@@ -15,9 +15,9 @@ describe("auth.users", () => {
     });
   });
 
-  describe(".getAll", () => {
+  describe(".list", () => {
     it("should get all users", () => {
-      expect(auth.users.getAll.definition())
+      expect(auth.users.list.definition())
         .to.deep.equal({
           method: 'GET',
           url: '/users/',

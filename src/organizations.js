@@ -10,7 +10,7 @@ const create = (data, options = {}) => ({
 });
 
 
-const getAll = (options = {}) => ({
+const list = (options = {}) => ({
   method: 'GET',
   url: '/organizations/',
   options
@@ -54,7 +54,7 @@ const removeUser = (id, userId, opts) => ({
 
 module.exports = mapValues({
   create,
-  getAll,
+  list,
   get,
   update,
   archive,

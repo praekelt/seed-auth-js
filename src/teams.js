@@ -10,7 +10,7 @@ const create = (orgId, data, options = {}) => ({
 });
 
 
-const getAll = (options = {}) => ({
+const list = (options = {}) => ({
   method: 'GET',
   url: '/teams/',
   options
@@ -71,7 +71,7 @@ const removePermission = (id, permissionId, options = {}) => ({
 
 module.exports = mapValues({
   create,
-  getAll,
+  list,
   get,
   update,
   archive,

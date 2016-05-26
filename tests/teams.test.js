@@ -15,9 +15,9 @@ describe("auth.teams", () => {
     });
   });
 
-  describe(".getAll", () => {
+  describe(".list", () => {
     it("should get all teams", () => {
-      expect(auth.teams.getAll.definition())
+      expect(auth.teams.list.definition())
         .to.deep.equal({
           method: 'GET',
           url: '/teams/',

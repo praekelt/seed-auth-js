@@ -15,9 +15,9 @@ describe("auth.organizations", () => {
     });
   });
 
-  describe(".getAll", () => {
+  describe(".list", () => {
     it("should get all organizations", () => {
-      expect(auth.organizations.getAll.definition())
+      expect(auth.organizations.list.definition())
         .to.deep.equal({
           method: 'GET',
           url: '/organizations/',
