@@ -54,6 +54,21 @@ const removeUser = (id, userId, options = {}) => ({
 });
 
 
+const addPermission = (id, data, options = {}) => ({
+  method: 'POST',
+  url: `/teams/${id}/permissions/`,
+  data,
+  options
+});
+
+
+const removePermission = (id, permissionId, options = {}) => ({
+  method: 'DELETE',
+  url: `/teams/${id}/permissions/${permissionId}`,
+  options
+});
+
+
 module.exports = mapValues({
   create,
   getAll,
@@ -61,5 +76,7 @@ module.exports = mapValues({
   update,
   archive,
   addUser,
-  removeUser
+  removeUser,
+  addPermission,
+  removePermission
 }, method);
