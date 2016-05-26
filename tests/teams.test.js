@@ -5,10 +5,10 @@ const auth = require('..');
 describe("auth.teams", () => {
   describe(".create", () => {
     it("should create a team", () => {
-      expect(auth.teams.create.definition({a: 23}))
+      expect(auth.teams.create.definition(21, {a: 23}))
         .to.deep.equal({
           method: 'POST',
-          url: '/teams/',
+          url: '/organizations/21/teams/',
           data: {a: 23},
           options: {}
         });
