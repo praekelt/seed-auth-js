@@ -18,7 +18,7 @@ auth.users.list()
 
 ## api
 
-## configuration
+### configuration
 
 Configuration can be provided as an options object for each api method:
 
@@ -32,16 +32,16 @@ or set for all api methods:
 auth.conf.token = '1234';
 ```
 
-### `conf.prefix`
+#### `conf.prefix`
 
 The prefix to use for requests. Defaults to `http://localhost:8000`.
 
-### `conf.token`
+#### `conf.token`
 
 The authentication token to use for requests.
 
 
-## query params
+### query params
 
 Query params for api methods can be provided directly in the options object for each api method:
 
@@ -49,7 +49,7 @@ Query params for api methods can be provided directly in the options object for 
 auth.users.list({archived: true});
 ```
 
-## pagination
+### pagination
 
 The result object contains `next()`, `prev()`, `hasNext()` and `hasPrev()` methods for traversing paginated results:
 
@@ -71,9 +71,9 @@ auth.users.list({
   .then(res => res.prev()); // prev page (or `null` if there is no prev page)
 ```
 
-## [`auth.user`](src/user.js)
-## [`auth.tokens`](src/tokens.js)
-## [`auth.passwords`](src/passwords.js)
-## [`auth.users`](src/users.js)
-## [`auth.organizations`](src/organizations.js)
-## [`auth.teams`](src/teams.js)
+### [`auth.user`](src/user.js)
+### [`auth.tokens`](src/tokens.js)
+### [`auth.passwords`](src/passwords.js)
+### [`auth.users`](src/users.js)
+### [`auth.organizations`](src/organizations.js)
+### [`auth.teams`](src/teams.js)
