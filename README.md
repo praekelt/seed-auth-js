@@ -68,7 +68,7 @@ auth.users.list({
     return res
   })
   .then(res => res.next()) // next page (or `null` if there is no next page)
-  .then(res => res.prev()) // prev page (or `null` if there is no prev page)
+  .then(res => res.prev()); // prev page (or `null` if there is no prev page)
 ```
 
 ## [`auth.user`](src/user.js)
