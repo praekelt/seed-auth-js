@@ -2,13 +2,13 @@ const { method } = require('./http');
 const mapValues = require('lodash/mapValues');
 
 
-const getPermissions = (options = {}) => ({
+const get = (options = {}) => ({
   method: 'GET',
-  url: `/user/permissions/`,
+  url: `/user`,
   options
 });
 
 
 module.exports = mapValues({
-  getPermissions
+  get
 }, method);

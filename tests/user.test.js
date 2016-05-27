@@ -3,12 +3,12 @@ const auth = require('..');
 
 
 describe("auth.user", () => {
-  describe(".getPermissions", () => {
-    it("should get a user's permissions", () => {
-      return expect(auth.user.getPermissions.definition())
+  describe(".get", () => {
+    it("should get a user's description", () => {
+      return expect(auth.user.get.definition())
         .to.deep.equal({
           method: 'GET',
-          url: '/user/permissions/',
+          url: '/user',
           options: {}
         });
     });
