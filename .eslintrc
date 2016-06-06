@@ -30,3 +30,4 @@ rules:
   max-len: [2, code: 80]
   object-property-newline: error
   no-underscore-dangle: 0
+  no-confusing-arrow: 0
