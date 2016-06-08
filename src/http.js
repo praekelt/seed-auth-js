@@ -44,7 +44,13 @@ function parseResponse(def, resp) {
 
 function throwResponse(obj) {
   if (obj instanceof Error) throw obj;
-  else throw new SeedAuthResponseError(obj);
+
+  switch (obj.status) {
+    case 401: throw new SeedAuthUnauthorizedError(obj);
+    case 403: throw new SeedAuthForbiddenError(obj);
+    case 404: throw new SeedAuthNotFoundError(obj);
+    default: throw new SeedAuthResponseError(obj);
+  }
 }
 
 
@@ -53,6 +59,18 @@ class SeedAuthResponseError extends Error {
     super();
     this.response = response;
   }
+}
+
+
+class SeedAuthUnauthorizedError extends SeedAuthResponseError {
+}
+
+
+class SeedAuthForbiddenError extends SeedAuthResponseError {
+}
+
+
+class SeedAuthNotFoundError extends SeedAuthResponseError {
 }
 
 
@@ -104,5 +122,8 @@ module.exports = {
   method,
   request,
   SeedAuthResult,
+  SeedAuthUnauthorizedError,
+  SeedAuthForbiddenError,
+  SeedAuthNotFoundError,
   SeedAuthResponseError
 };

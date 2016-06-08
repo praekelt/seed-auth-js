@@ -9,6 +9,9 @@ const organizations = require('./organizations');
 const {
   method,
   request,
+  SeedAuthUnauthorizedError,
+  SeedAuthForbiddenError,
+  SeedAuthNotFoundError,
   SeedAuthResponseError,
   SeedAuthResult
 } = require('./http');
@@ -25,6 +28,9 @@ module.exports = {
   passwords,
   users,
   organizations,
+  SeedAuthUnauthorizedError,
+  SeedAuthForbiddenError,
+  SeedAuthNotFoundError,
   SeedAuthResponseError,
   SeedAuthResult
 };
