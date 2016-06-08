@@ -52,6 +52,12 @@ const removeUser = (id, userId, opts) => ({
 });
 
 
+const listTeams = (id) => ({
+  method: 'GET',
+  url: `/organizations/${id}/teams/`
+});
+
+
 module.exports = mapValues({
   create,
   list,
@@ -59,5 +65,6 @@ module.exports = mapValues({
   update,
   archive,
   addUser,
-  removeUser
+  removeUser,
+  listTeams
 }, method);
