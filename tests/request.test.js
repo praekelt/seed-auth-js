@@ -1,8 +1,14 @@
 const { expect } = require('chai');
 const auth = require('..');
-const { SeedAuthResponseError } = auth;
 const { fail } = expect;
 const { conj } = auth.utils;
+
+const {
+  SeedAuthUnauthorizedError,
+  SeedAuthForbiddenError,
+  SeedAuthNotFoundError,
+  SeedAuthResponseError
+} = auth;
 
 
 describe("auth.request", () => {
@@ -13,17 +19,6 @@ describe("auth.request", () => {
         options: {conf: {prefix: 'http://localhost:8001'}}
       })
       .then(res => expect(res.data).to.be.empty);
-  });
-
-  it("should throw error responses", () => {
-    return auth.request({
-        method: 'GET',
-        url: '/i-do-not-exist'
-      })
-      .then(fail, e => {
-        expect(e).to.be.an.instanceof(SeedAuthResponseError);
-        expect(e.response.status).to.equal(404);
-      });
   });
 
   it("should support token auth", () => {
@@ -50,6 +45,51 @@ describe("auth.request", () => {
         foo: 23,
         bar: false
       }));
+  });
+
+  it("should throw an error for 401 responses", () => {
+    return auth.request({
+        method: 'GET',
+        url: '/401'
+      })
+      .then(fail, e => {
+        expect(e.response.status).to.equal(401);
+        expect(e).to.be.an.instanceof(SeedAuthUnauthorizedError);
+      });
+  });
+
+  it("should throw an error for 403 responses", () => {
+    return auth.request({
+        method: 'GET',
+        url: '/403'
+      })
+      .then(fail, e => {
+        expect(e.response.status).to.equal(403);
+        expect(e).to.be.an.instanceof(SeedAuthForbiddenError);
+      });
+  });
+
+  it("should throw an error for 404 responses", () => {
+    return auth.request({
+        method: 'GET',
+        url: '/404'
+      })
+      .then(fail, e => {
+        expect(e.response.status).to.equal(404);
+        expect(e).to.be.an.instanceof(SeedAuthNotFoundError);
+      });
+  });
+
+  it("should throw error responses that don't have their own error class",
+  () => {
+    return auth.request({
+        method: 'GET',
+        url: '/500'
+      })
+      .then(fail, e => {
+        expect(e.response.status).to.equal(500);
+        expect(e).to.be.an.instanceof(SeedAuthResponseError);
+      });
   });
 
   describe("result", () => {

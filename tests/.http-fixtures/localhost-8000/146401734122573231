@@ -1,7 +1,7 @@
-GET /500
+GET /401
 accept: application/json, text/plain, */*
 
-HTTP/1.0 500
+HTTP/1.0 401 Unauthorized
 date: Mon, 23 May 2016 15:29:01 GMT
 server: WSGIServer/0.1 Python/2.7.10
 x-frame-options: SAMEORIGIN
