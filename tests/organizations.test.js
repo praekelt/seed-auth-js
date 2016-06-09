@@ -80,4 +80,14 @@ describe("auth.organizations", () => {
         });
     });
   });
+
+  describe(".listTeams", () => {
+    it("should list the organization's teams", () => {
+      return expect(auth.organizations.listTeams.definition(23))
+        .to.deep.equal({
+          method: 'GET',
+          url: '/organizations/23/teams/'
+        });
+    });
+  });
 });
