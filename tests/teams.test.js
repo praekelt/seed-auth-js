@@ -31,7 +31,7 @@ describe("auth.teams", () => {
       expect(auth.teams.get.definition(1))
         .to.deep.equal({
           method: 'GET',
-          url: '/teams/1',
+          url: '/teams/1/',
           options: {}
         });
     });
@@ -42,7 +42,7 @@ describe("auth.teams", () => {
       expect(auth.teams.update.definition(1, {a: 23}))
         .to.deep.equal({
           method: 'PUT',
-          url: '/teams/1',
+          url: '/teams/1/',
           data: {a: 23},
           options: {}
         });
@@ -54,7 +54,7 @@ describe("auth.teams", () => {
       expect(auth.teams.archive.definition(1))
         .to.deep.equal({
           method: 'DELETE',
-          url: '/teams/1',
+          url: '/teams/1/',
           options: {}
         });
     });
@@ -77,7 +77,7 @@ describe("auth.teams", () => {
       return expect(auth.teams.removeUser.definition(1, 2))
         .to.deep.equal({
           method: 'DELETE',
-          url: '/teams/1/users/2',
+          url: '/teams/1/users/2/',
           options: {}
         });
     });
@@ -100,7 +100,7 @@ describe("auth.teams", () => {
       return expect(auth.teams.removePermission.definition(1, 2))
         .to.deep.equal({
           method: 'DELETE',
-          url: '/teams/1/permissions/2',
+          url: '/teams/1/permissions/2/',
           options: {}
         });
     });

@@ -8,7 +8,7 @@ describe("auth.user", () => {
       return expect(auth.user.get.definition())
         .to.deep.equal({
           method: 'GET',
-          url: '/user',
+          url: '/user/',
           options: {}
         });
     });

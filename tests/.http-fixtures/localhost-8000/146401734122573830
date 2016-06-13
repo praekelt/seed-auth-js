@@ -1,4 +1,4 @@
-GET /500
+GET /500/
 accept: application/json, text/plain, */*
 
 HTTP/1.0 500

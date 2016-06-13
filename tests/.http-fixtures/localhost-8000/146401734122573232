@@ -1,4 +1,4 @@
-GET /404
+GET /404/
 accept: application/json, text/plain, */*
 
 HTTP/1.0 404 Not Found

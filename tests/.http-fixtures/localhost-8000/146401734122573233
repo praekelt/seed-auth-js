@@ -1,4 +1,4 @@
-GET /403
+GET /403/
 accept: application/json, text/plain, */*
 
 HTTP/1.0 403 Forbidden

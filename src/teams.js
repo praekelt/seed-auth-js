@@ -19,14 +19,14 @@ const list = (options = {}) => ({
 
 const get = (id, options = {}) => ({
   method: 'GET',
-  url: `/teams/${id}`,
+  url: `/teams/${id}/`,
   options
 });
 
 
 const update = (id, data, options = {}) => ({
   method: 'PUT',
-  url: `/teams/${id}`,
+  url: `/teams/${id}/`,
   data,
   options
 });
@@ -34,7 +34,7 @@ const update = (id, data, options = {}) => ({
 
 const archive = (id, options = {}) => ({
   method: 'DELETE',
-  url: `/teams/${id}`,
+  url: `/teams/${id}/`,
   options
 });
 
@@ -49,7 +49,7 @@ const addUser = (id, userId, options = {}) => ({
 
 const removeUser = (id, userId, options = {}) => ({
   method: 'DELETE',
-  url: `/teams/${id}/users/${userId}`,
+  url: `/teams/${id}/users/${userId}/`,
   options
 });
 
@@ -64,7 +64,7 @@ const addPermission = (id, data, options = {}) => ({
 
 const removePermission = (id, permissionId, options = {}) => ({
   method: 'DELETE',
-  url: `/teams/${id}/permissions/${permissionId}`,
+  url: `/teams/${id}/permissions/${permissionId}/`,
   options
 });
 
