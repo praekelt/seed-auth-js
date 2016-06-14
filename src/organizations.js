@@ -39,22 +39,25 @@ const archive = (id, options = {}) => ({
 });
 
 
-const addUser = (id, userId, opts) => ({
+const addUser = (id, userId, options = {}) => ({
   method: 'POST',
   url: `/organizations/${id}/users/`,
-  data: {user_id: userId}
+  data: {user_id: userId},
+  options
 });
 
 
-const removeUser = (id, userId, opts) => ({
+const removeUser = (id, userId, options = {}) => ({
   method: 'DELETE',
-  url: `/organizations/${id}/users/${userId}/`
+  url: `/organizations/${id}/users/${userId}/`,
+  options
 });
 
 
-const listTeams = (id) => ({
+const listTeams = (id, options = {}) => ({
   method: 'GET',
-  url: `/organizations/${id}/teams/`
+  url: `/organizations/${id}/teams/`,
+  options
 });
 
 
