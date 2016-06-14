@@ -19,14 +19,14 @@ const list = (options = {}) => ({
 
 const get = (id, options = {}) => ({
   method: 'GET',
-  url: `/users/${id}`,
+  url: `/users/${id}/`,
   options
 });
 
 
 const update = (id, data, options = {}) => ({
   method: 'PUT',
-  url: `/users/${id}`,
+  url: `/users/${id}/`,
   data,
   options
 });
@@ -34,7 +34,7 @@ const update = (id, data, options = {}) => ({
 
 const deactivate = (id, options = {}) => ({
   method: 'DELETE',
-  url: `/users/${id}`,
+  url: `/users/${id}/`,
   options
 });
 

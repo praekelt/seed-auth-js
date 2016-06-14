@@ -50,7 +50,7 @@ describe("auth.request", () => {
   it("should throw an error for 401 responses", () => {
     return auth.request({
         method: 'GET',
-        url: '/401'
+        url: '/401/'
       })
       .then(fail, e => {
         expect(e.response.status).to.equal(401);
@@ -61,7 +61,7 @@ describe("auth.request", () => {
   it("should throw an error for 403 responses", () => {
     return auth.request({
         method: 'GET',
-        url: '/403'
+        url: '/403/'
       })
       .then(fail, e => {
         expect(e.response.status).to.equal(403);
@@ -72,7 +72,7 @@ describe("auth.request", () => {
   it("should throw an error for 404 responses", () => {
     return auth.request({
         method: 'GET',
-        url: '/404'
+        url: '/404/'
       })
       .then(fail, e => {
         expect(e.response.status).to.equal(404);
@@ -84,7 +84,7 @@ describe("auth.request", () => {
   () => {
     return auth.request({
         method: 'GET',
-        url: '/500'
+        url: '/500/'
       })
       .then(fail, e => {
         expect(e.response.status).to.equal(500);

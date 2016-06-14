@@ -19,14 +19,14 @@ const list = (options = {}) => ({
 
 const get = (id, options = {}) => ({
   method: 'GET',
-  url: `/organizations/${id}`,
+  url: `/organizations/${id}/`,
   options
 });
 
 
 const update = (id, data, options = {}) => ({
   method: 'PUT',
-  url: `/organizations/${id}`,
+  url: `/organizations/${id}/`,
   data,
   options
 });
@@ -34,7 +34,7 @@ const update = (id, data, options = {}) => ({
 
 const archive = (id, options = {}) => ({
   method: 'DELETE',
-  url: `/organizations/${id}`,
+  url: `/organizations/${id}/`,
   options
 });
 
@@ -48,7 +48,7 @@ const addUser = (id, userId, opts) => ({
 
 const removeUser = (id, userId, opts) => ({
   method: 'DELETE',
-  url: `/organizations/${id}/users/${userId}`
+  url: `/organizations/${id}/users/${userId}/`
 });
 
 

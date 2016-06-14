@@ -4,7 +4,7 @@ const mapValues = require('lodash/mapValues');
 
 const get = (options = {}) => ({
   method: 'GET',
-  url: `/user`,
+  url: `/user/`,
   options
 });
 

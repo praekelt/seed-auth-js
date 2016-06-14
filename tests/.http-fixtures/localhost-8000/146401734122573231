@@ -1,4 +1,4 @@
-GET /401
+GET /401/
 accept: application/json, text/plain, */*
 
 HTTP/1.0 401 Unauthorized
