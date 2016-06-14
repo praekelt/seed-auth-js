@@ -1,6 +1,6 @@
 {
   "name": "@praekelt/seed-auth",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "js client for seed-auth-api",
   "main": "index.js",
   "scripts": {
