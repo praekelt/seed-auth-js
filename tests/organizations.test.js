@@ -66,7 +66,8 @@ describe("auth.organizations", () => {
         .to.deep.equal({
           method: 'POST',
           url: '/organizations/1/users/',
-          data: {user_id: 2}
+          data: {user_id: 2},
+          options: {}
         });
     });
   });
@@ -76,7 +77,8 @@ describe("auth.organizations", () => {
       return expect(auth.organizations.removeUser.definition(1, 2))
         .to.deep.equal({
           method: 'DELETE',
-          url: '/organizations/1/users/2/'
+          url: '/organizations/1/users/2/',
+          options: {}
         });
     });
   });
@@ -86,7 +88,8 @@ describe("auth.organizations", () => {
       return expect(auth.organizations.listTeams.definition(23))
         .to.deep.equal({
           method: 'GET',
-          url: '/organizations/23/teams/'
+          url: '/organizations/23/teams/',
+          options: {}
         });
     });
   });
