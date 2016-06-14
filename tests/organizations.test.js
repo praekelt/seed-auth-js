@@ -31,7 +31,7 @@ describe("auth.organizations", () => {
       expect(auth.organizations.get.definition(1))
         .to.deep.equal({
           method: 'GET',
-          url: '/organizations/1',
+          url: '/organizations/1/',
           options: {}
         });
     });
@@ -42,7 +42,7 @@ describe("auth.organizations", () => {
       expect(auth.organizations.update.definition(1, {a: 23}))
         .to.deep.equal({
           method: 'PUT',
-          url: '/organizations/1',
+          url: '/organizations/1/',
           data: {a: 23},
           options: {}
         });
@@ -54,7 +54,7 @@ describe("auth.organizations", () => {
       expect(auth.organizations.archive.definition(1))
         .to.deep.equal({
           method: 'DELETE',
-          url: '/organizations/1',
+          url: '/organizations/1/',
           options: {}
         });
     });
@@ -76,7 +76,7 @@ describe("auth.organizations", () => {
       return expect(auth.organizations.removeUser.definition(1, 2))
         .to.deep.equal({
           method: 'DELETE',
-          url: '/organizations/1/users/2'
+          url: '/organizations/1/users/2/'
         });
     });
   });
