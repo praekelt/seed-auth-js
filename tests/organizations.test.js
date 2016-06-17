@@ -64,9 +64,8 @@ describe("auth.organizations", () => {
     it("should add a user to the organization", () => {
       return expect(auth.organizations.addUser.definition(1, 2))
         .to.deep.equal({
-          method: 'POST',
-          url: '/organizations/1/users/',
-          data: {user_id: 2},
+          method: 'PUT',
+          url: '/organizations/1/users/2/',
           options: {}
         });
     });

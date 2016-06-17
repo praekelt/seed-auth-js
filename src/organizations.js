@@ -40,9 +40,8 @@ const archive = (id, options = {}) => ({
 
 
 const addUser = (id, userId, options = {}) => ({
-  method: 'POST',
-  url: `/organizations/${id}/users/`,
-  data: {user_id: userId},
+  method: 'PUT',
+  url: `/organizations/${id}/users/${userId}/`,
   options
 });
 

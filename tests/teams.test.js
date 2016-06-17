@@ -64,9 +64,8 @@ describe("auth.teams", () => {
     it("should add a user to the team", () => {
       return expect(auth.teams.addUser.definition(1, 2))
         .to.deep.equal({
-          method: 'POST',
-          url: '/teams/1/users/',
-          data: {user_id: 2},
+          method: 'PUT',
+          url: '/teams/1/users/2/',
           options: {}
         });
     });
