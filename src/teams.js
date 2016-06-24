@@ -40,9 +40,8 @@ const archive = (id, options = {}) => ({
 
 
 const addUser = (id, userId, options = {}) => ({
-  method: 'POST',
-  url: `/teams/${id}/users/`,
-  data: {user_id: userId},
+  method: 'PUT',
+  url: `/teams/${id}/users/${userId}/`,
   options
 });
 
