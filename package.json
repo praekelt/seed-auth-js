@@ -29,7 +29,7 @@
     "replay": "^2.0.6"
   },
   "dependencies": {
-    "axios": "^0.12.0",
+    "axios": "^0.13.1",
     "lodash": "^4.12.0",
     "parse-link-header": "^0.4.1",
     "query-string": "^4.1.0"
